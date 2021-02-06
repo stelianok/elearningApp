@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   Container,
@@ -13,7 +14,10 @@ import {
 
 import eImg from '../../assets/img/e.png';
 import logo from '../../assets/img/Guy.png';
+import {useNavigation} from '@react-navigation/native';
 const Login: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <Header>
@@ -26,7 +30,10 @@ const Login: React.FC = () => {
               conhecimento.
             </Description>
           </WelcomeView>
-          <StartButton>
+          <StartButton
+            onPress={() => {
+              navigation.navigate('Home');
+            }}>
             <StartButtonText>Começar os estudos</StartButtonText>
           </StartButton>
         </Background>
