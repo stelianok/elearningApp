@@ -1,12 +1,14 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {View, Text} from 'react-native';
+import {StatusBar} from 'react-native';
 
+import Login from './screens/Login';
 const App: React.FC = () => {
   return (
-    <View>
-      <Text style={{fontFamily: 'Rubik-Regular'}}>This is fine</Text>
-    </View>
+    <>
+      <StatusBar backgroundColor="#6548A3" />
+      <Login />
+    </>
   );
 };
 
