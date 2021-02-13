@@ -58,8 +58,10 @@ export const Category = styled.Text`
   font-family: 'Rubik-Regular';
   color: #3d3d4c;
 
-  font-size: 30px;
+  font-size: 26px;
   align-self: center;
+
+  margin-left: 5px;
 `;
 export const Courses = styled.Text`
   font-family: 'Roboto-Regular';
@@ -92,6 +94,9 @@ export const ClassLogo = styled.Image`
   margin-top: 30px;
 
   margin-bottom: 35px;
+
+  align-self: center;
+  margin-right: 15px;
 `;
 export const ClassInfo = styled.View`
   margin-bottom: 20px;
