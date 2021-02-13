@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
   Container,
@@ -14,17 +14,68 @@ import {
   Classes,
   Class,
   ClassLogo,
+  ClassInfo,
   Title,
   Lessons,
 } from './styles';
 
 import logo from '../../assets/img/Logotipo.png';
+
 import math from '../../assets/img/Math.png';
+import build from '../../assets/img/Build.png';
+import chemistry from '../../assets/img/Quimica.png';
+import physics from '../../assets/img/Fisica.png';
+import talk from '../../assets/img/Talk.png';
+import english from '../../assets/img/English.png';
 
 import Icon from 'react-native-vector-icons/Feather';
 import {Image} from 'react-native';
 
+export interface Lesson {
+  id: string;
+  name: string;
+  numberOfClasses: number;
+  classIcon: any;
+}
 const Home: React.FC = () => {
+  const [classes, setClasses] = useState<Lesson[]>([
+    {
+      id: '01',
+      name: 'Matemática',
+      numberOfClasses: 16,
+      classIcon: math,
+    },
+    {
+      id: '02',
+      name: 'Física',
+      numberOfClasses: 25,
+      classIcon: physics,
+    },
+    {
+      id: '03',
+      name: 'Inglês',
+      numberOfClasses: 6,
+      classIcon: english,
+    },
+    {
+      id: '04',
+      name: 'Química',
+      numberOfClasses: 61,
+      classIcon: chemistry,
+    },
+    {
+      id: '05',
+      name: 'Softskills',
+      numberOfClasses: 10,
+      classIcon: talk,
+    },
+    {
+      id: '06',
+      name: 'Arte',
+      numberOfClasses: 35,
+      classIcon: build,
+    },
+  ]);
   return (
     <Container>
       <Header>
@@ -47,13 +98,23 @@ const Home: React.FC = () => {
           <Category>Categorias</Category>
           <Courses>43 cursos</Courses>
         </InfoView>
-        <Classes>
-          <Class>
-            <ClassLogo source={math} />
-            <Title>Matemática</Title>
-            <Lessons>16 aulas</Lessons>
-          </Class>
-        </Classes>
+        <Classes
+          data={classes}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
+          showHorizontalScreenIndicator={false}
+          renderItem={({item}) => {
+            return (
+              <Class>
+                <ClassLogo source={item.classIcon} resizeMode={'contain'} />
+                <ClassInfo>
+                  <Title>{item.name}</Title>
+                  <Lessons>{item.numberOfClasses} aulas </Lessons>
+                </ClassInfo>
+              </Class>
+            );
+          }}
+        />
       </ClassesContainer>
     </Container>
   );
