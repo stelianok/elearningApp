@@ -29,7 +29,8 @@ import talk from '../../assets/img/Talk.png';
 import english from '../../assets/img/English.png';
 
 import Icon from 'react-native-vector-icons/Feather';
-import {Image} from 'react-native';
+import {Image, KeyboardAvoidingView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 export interface Lesson {
   id: string;
@@ -38,7 +39,8 @@ export interface Lesson {
   classIcon: any;
 }
 const Home: React.FC = () => {
-  const [classes, setClasses] = useState<Lesson[]>([
+  const {goBack} = useNavigation();
+  const [classes] = useState<Lesson[]>([
     {
       id: '01',
       name: 'Matemática',
@@ -81,7 +83,10 @@ const Home: React.FC = () => {
       <Header>
         <HeaderTop>
           <Image source={logo} />
-          <LogoutButton>
+          <LogoutButton
+            onPress={() => {
+              goBack();
+            }}>
             <Icon name={'power'} size={30} color={'#FF6680'} />
           </LogoutButton>
         </HeaderTop>
