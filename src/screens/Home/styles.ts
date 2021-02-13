@@ -3,6 +3,7 @@ import {Lesson} from './index';
 import {FlatList, RectButton} from 'react-native-gesture-handler';
 
 export const Container = styled.View`
+  background-color: #6548a3;
   flex: 1;
 `;
 

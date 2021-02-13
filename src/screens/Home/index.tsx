@@ -29,7 +29,7 @@ import talk from '../../assets/img/Talk.png';
 import english from '../../assets/img/English.png';
 
 import Icon from 'react-native-vector-icons/Feather';
-import {Image, KeyboardAvoidingView} from 'react-native';
+import {Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 export interface Lesson {
