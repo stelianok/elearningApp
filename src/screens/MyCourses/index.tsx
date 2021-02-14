@@ -41,7 +41,7 @@ export interface Lesson {
   classIcon: any;
 }
 const MyCourses: React.FC = () => {
-  const {goBack} = useNavigation();
+  const navigation = useNavigation();
   const [classes] = useState<Lesson[]>([
     {
       id: '03',
@@ -75,7 +75,7 @@ const MyCourses: React.FC = () => {
           <Image source={logo} />
           <LogoutButton
             onPress={() => {
-              goBack();
+              navigation.navigate('Login');
             }}>
             <Icon name={'power'} size={30} color={'#FF6680'} />
           </LogoutButton>
