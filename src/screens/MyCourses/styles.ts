@@ -56,7 +56,7 @@ export const InfoView = styled.View`
   align-items: center;
 `;
 export const SavedClasses = styled.Text`
-  font-family: 'Rubik-Regular, sans-serif';
+  font-family: 'Rubik', sans-serif;
   color: #3d3d4c;
 
   font-size: 24px;
@@ -111,7 +111,7 @@ export const ClassInfo = styled.View`
   margin-bottom: 20px;
 `;
 export const Title = styled.Text`
-  font-family: 'Rubik-Regular';
+  font-family: 'Rubik';
   color: #6c6c80;
 
   font-size: 20px;

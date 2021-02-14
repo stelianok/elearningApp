@@ -31,7 +31,7 @@ export const WelcomeView = styled.View`
   margin-left: 45px;
 `;
 export const Title = styled.Text`
-  font-family: 'Rubik-Regular';
+  font-family: 'Rubik';
   color: #ff6680;
 
   font-size: 36px;

@@ -56,7 +56,7 @@ export const InfoView = styled.View`
   align-items: center;
 `;
 export const Category = styled.Text`
-  font-family: 'Rubik-Regular';
+  font-family: 'Rubik';
   color: #3d3d4c;
 
   font-size: 26px;
@@ -103,7 +103,7 @@ export const ClassInfo = styled.View`
   margin-bottom: 20px;
 `;
 export const Title = styled.Text`
-  font-family: 'Rubik-Regular';
+  font-family: 'Rubik';
   color: #6c6c80;
 
   font-size: 20px;
