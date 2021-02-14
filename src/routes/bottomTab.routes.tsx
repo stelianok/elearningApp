@@ -14,6 +14,7 @@ const BottomTabRoutes: React.FC = () => (
     inactiveColor="#C4C4D1"
     barStyle={{
       backgroundColor: '#fff',
+      marginTop: -3,
     }}>
     <Tab.Screen
       name="Home"

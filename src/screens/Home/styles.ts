@@ -54,12 +54,14 @@ export const InfoView = styled.View`
   justify-content: space-between;
 
   align-items: center;
+
+  padding-bottom: 10px;
 `;
 export const Category = styled.Text`
   font-family: 'Rubik';
   color: #3d3d4c;
 
-  font-size: 26px;
+  font-size: 24px;
   align-self: center;
 
   margin-left: 5px;

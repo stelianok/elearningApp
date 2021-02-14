@@ -52,8 +52,9 @@ export const ClassesContainer = styled.View`
 export const InfoView = styled.View`
   flex-direction: row;
   justify-content: space-between;
-
   align-items: center;
+
+  padding-bottom: 10px;
 `;
 export const SavedClasses = styled.Text`
   font-family: 'Rubik';
