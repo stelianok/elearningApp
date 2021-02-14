@@ -32,7 +32,7 @@ const Login: React.FC = () => {
           </WelcomeView>
           <StartButton
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate('MainRoutes');
             }}>
             <StartButtonText>Começar os estudos</StartButtonText>
           </StartButton>
