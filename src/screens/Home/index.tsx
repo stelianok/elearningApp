@@ -116,7 +116,10 @@ const Home: React.FC = () => {
           showHorizontalScreenIndicator={false}
           renderItem={({item}) => {
             return (
-              <Class>
+              <Class
+                onPress={() => {
+                  navigation.navigate('Lectures');
+                }}>
                 <ClassLogo source={item.classIcon} resizeMode={'contain'} />
                 <ClassInfo>
                   <Title>{item.name}</Title>
