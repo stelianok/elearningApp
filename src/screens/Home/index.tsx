@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 
 import {
   Container,
@@ -40,6 +40,7 @@ export interface Lesson {
 }
 const Home: React.FC = () => {
   const navigation = useNavigation();
+
   const [classes] = useState<Lesson[]>([
     {
       id: '01',
@@ -73,6 +74,12 @@ const Home: React.FC = () => {
     },
     {
       id: '06',
+      name: 'Arte',
+      numberOfClasses: 35,
+      classIcon: build,
+    },
+    {
+      id: '07',
       name: 'Arte',
       numberOfClasses: 35,
       classIcon: build,

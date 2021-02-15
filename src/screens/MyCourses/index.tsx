@@ -67,6 +67,12 @@ const MyCourses: React.FC = () => {
       numberOfClasses: 35,
       classIcon: build,
     },
+    {
+      id: '07',
+      name: 'Arte',
+      numberOfClasses: 35,
+      classIcon: build,
+    },
   ]);
   return (
     <Container>

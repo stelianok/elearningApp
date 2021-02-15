@@ -74,7 +74,7 @@ export const Courses = styled.Text`
 `;
 export const Classes = styled(FlatList as new () => FlatList<Lesson>)``;
 export const Class = styled(RectButton)`
-  flex: 1;
+  flex: 0.5;
   flex-basis: 0;
   background-color: #fff;
   width: 225px;
@@ -86,9 +86,9 @@ export const Class = styled(RectButton)`
 
   border-radius: 30px;
 
-  margin-top: 25px;
-  margin-left: 3px;
-  margin-right: 3px;
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
 `;
 export const ClassLogo = styled.Image`
   width: 90px;
