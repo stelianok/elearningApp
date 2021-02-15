@@ -47,7 +47,7 @@ export interface Lesson {
 }
 const MyCourses: React.FC = () => {
   const navigation = useNavigation();
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   const [classes] = useState<Lesson[]>([
     {
       id: '03',
