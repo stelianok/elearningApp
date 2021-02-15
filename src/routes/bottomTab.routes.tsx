@@ -7,6 +7,7 @@ const Tab = createMaterialTopTabNavigator();
 
 import HomeRoutes from './home.routes';
 import MyCourses from '../screens/MyCourses';
+import Home from '../screens/Home';
 
 const BottomTabRoutes: React.FC = () => (
   <Tab.Navigator
@@ -39,7 +40,7 @@ const BottomTabRoutes: React.FC = () => (
     }}>
     <Tab.Screen
       name="Home"
-      component={HomeRoutes}
+      component={Home}
       options={{
         tabBarLabel: 'Home',
         tabBarIcon: ({color}) => <Icon name="home" color={color} size={24} />,
