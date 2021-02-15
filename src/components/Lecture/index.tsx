@@ -13,6 +13,7 @@ import {
   CompleteContainerText,
   PlayButtonView,
 } from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 interface LectureProps {
   name: string;
@@ -29,9 +30,13 @@ const Lecture: React.FC<LectureProps> = (props) => {
     isComplete,
     containerStyle = {},
   } = props;
+  const navigation = useNavigation();
   return (
     <LectureContainer>
-      <LectureInformation>
+      <LectureInformation
+        onPress={() => {
+          navigation.navigate('VideoLecture');
+        }}>
         <LectureTitle>{name}</LectureTitle>
         <LectureSubtitleContainer>
           <LectureSubtitle> {lectureNumber}</LectureSubtitle>
