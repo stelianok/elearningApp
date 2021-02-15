@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
 
 import logo from '../../assets/img/Logotipo.png';
+import Lecture from '../../components/Lecture';
 
 import {
   Container,
@@ -16,16 +17,6 @@ import {
   Title,
   NumberOfLectures,
   Lectures,
-  Lecture,
-  PlayButtonView,
-  LectureInformation,
-  LectureTitle,
-  LectureSubtitleContainer,
-  LectureSubtitle,
-  LectureDurationContainer,
-  LectureDuration,
-  CompleteContainer,
-  CompleteContainerText,
 } from './styles';
 
 const VideoLecture: React.FC = () => {
@@ -52,24 +43,7 @@ const VideoLecture: React.FC = () => {
           <NumberOfLectures>16 aulas</NumberOfLectures>
         </InfoView>
         <Lectures>
-          <Lecture>
-            <PlayButtonView>
-              <Icon name={'play-circle'} size={45} color={'#fff'} />
-            </PlayButtonView>
-            <LectureInformation>
-              <LectureTitle>Introdução à teoria matemática</LectureTitle>
-              <LectureSubtitleContainer>
-                <LectureSubtitle> Aula 03</LectureSubtitle>
-                <LectureDurationContainer>
-                  <Icon name={'clock'} size={18} color={'#C4C4D1'} />
-                  <LectureDuration>5min</LectureDuration>
-                </LectureDurationContainer>
-                <CompleteContainer>
-                  <CompleteContainerText>Completo!</CompleteContainerText>
-                </CompleteContainer>
-              </LectureSubtitleContainer>
-            </LectureInformation>
-          </Lecture>
+          <Lecture />
         </Lectures>
       </LectureContainer>
     </Container>

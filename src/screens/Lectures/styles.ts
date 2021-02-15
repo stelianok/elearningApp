@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {RectButton} from 'react-native-gesture-handler';
 export const Container = styled.View`
   background-color: #6548a3;
   flex: 1;
@@ -58,71 +59,3 @@ export const NumberOfLectures = styled.Text`
   font-size: 18px;
 `;
 export const Lectures = styled.ScrollView``;
-export const Lecture = styled.View`
-  flex: 1;
-  flex-direction: row;
-`;
-export const PlayButtonView = styled.View`
-  background-color: #61c5bd;
-
-  justify-content: center;
-  align-items: center;
-
-  width: 80px;
-  height: 80px;
-
-  border-radius: 25px;
-`;
-export const LectureInformation = styled.View`
-  flex: 1;
-  background-color: #fff;
-  padding: 10px;
-  padding-left: 20px;
-
-  border-radius: 15px;
-
-  justify-content: flex-start;
-  align-items: flex-start;
-`;
-export const LectureTitle = styled.Text`
-  font-family: 'Rubik';
-  font-size: 18px;
-  color: #6c6c80;
-
-  margin-bottom: 10px;
-`;
-export const LectureSubtitleContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-
-  margin: 5px;
-`;
-export const LectureSubtitle = styled.Text`
-  font-family: 'Roboto-Regular';
-  color: #c4c4d1;
-`;
-export const LectureDurationContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-left: 20px;
-`;
-export const LectureDuration = styled.Text`
-  font-family: 'Roboto-Regular';
-  color: #c4c4d1;
-`;
-export const CompleteContainer = styled.View`
-  background-color: #61c5bd;
-  padding: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
-
-  border-radius: 50px;
-
-  align-self: flex-end;
-  margin-left: 50px;
-`;
-export const CompleteContainerText = styled.Text`
-  font-family: 'Roboto-Regular';
-  color: #fff;
-`;
