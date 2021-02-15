@@ -43,7 +43,36 @@ const VideoLecture: React.FC = () => {
           <NumberOfLectures>16 aulas</NumberOfLectures>
         </InfoView>
         <Lectures>
-          <Lecture />
+          <Lecture
+            name={'Introdução à teoria matemática'}
+            lectureNumber={'Aula 03'}
+            duration={'5min'}
+            isComplete={true}
+          />
+          <Lecture
+            name={'Introdução à teoria matemática'}
+            lectureNumber={'Aula 03'}
+            duration={'5min'}
+            isComplete={false}
+          />
+          <Lecture
+            name={'Introdução à teoria matemática'}
+            lectureNumber={'Aula 03'}
+            duration={'5min'}
+            isComplete={true}
+          />
+          <Lecture
+            name={'Introdução à teoria matemática'}
+            lectureNumber={'Aula 03'}
+            duration={'5min'}
+            isComplete={false}
+          />
+          <Lecture
+            name={'Introdução à teoria matemática'}
+            lectureNumber={'Aula 03'}
+            duration={'5min'}
+            isComplete={false}
+          />
         </Lectures>
       </LectureContainer>
     </Container>

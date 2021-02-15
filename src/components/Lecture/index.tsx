@@ -14,23 +14,39 @@ import {
   PlayButtonView,
 } from './styles';
 
-const Lecture: React.FC = () => {
+interface LectureProps {
+  name: string;
+  lectureNumber: string;
+  duration: string;
+  isComplete: boolean;
+  containerStyle?: {};
+}
+const Lecture: React.FC<LectureProps> = (props) => {
+  const {
+    name,
+    lectureNumber,
+    duration,
+    isComplete,
+    containerStyle = {},
+  } = props;
   return (
     <LectureContainer>
       <LectureInformation>
-        <LectureTitle>Introdução à teoria matemática</LectureTitle>
+        <LectureTitle>{name}</LectureTitle>
         <LectureSubtitleContainer>
-          <LectureSubtitle> Aula 03</LectureSubtitle>
+          <LectureSubtitle> {lectureNumber}</LectureSubtitle>
           <LectureDurationContainer>
             <Icon name={'clock'} size={18} color={'#C4C4D1'} />
-            <LectureDuration>5min</LectureDuration>
+            <LectureDuration>{duration}</LectureDuration>
           </LectureDurationContainer>
-          <CompleteContainer>
-            <CompleteContainerText>Completo!</CompleteContainerText>
-          </CompleteContainer>
+          {isComplete && (
+            <CompleteContainer>
+              <CompleteContainerText>Completo!</CompleteContainerText>
+            </CompleteContainer>
+          )}
         </LectureSubtitleContainer>
       </LectureInformation>
-      <PlayButtonView>
+      <PlayButtonView style={containerStyle} isComplete={isComplete}>
         <Icon name={'play-circle'} size={45} color={'#fff'} />
       </PlayButtonView>
     </LectureContainer>

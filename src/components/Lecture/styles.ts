@@ -1,6 +1,10 @@
-import styled from 'styled-components/native';
+import styled, {css} from 'styled-components/native';
 import {RectButton} from 'react-native-gesture-handler';
 
+interface PlayerProps {
+  isComplete: boolean;
+  containerStyle?: {};
+}
 export const LectureContainer = styled.View`
   flex: 1;
   flex-direction: row;
@@ -11,12 +15,23 @@ export const LectureContainer = styled.View`
 
   margin-bottom: 25px;
 `;
-export const PlayButtonView = styled.View`
+export const PlayButtonView = styled.View<PlayerProps>`
   position: absolute;
 
   top: 15px;
   left: 0;
-  background-color: #61c5bd;
+
+  ${(props) =>
+    props.isComplete &&
+    css`
+      background-color: #61c5bd;
+    `};
+
+  ${(props) =>
+    !props.isComplete &&
+    css`
+      background-color: #ff6680;
+    `};
 
   justify-content: center;
   align-items: center;
