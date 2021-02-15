@@ -24,6 +24,8 @@ import {
   LectureSubtitle,
   LectureDurationContainer,
   LectureDuration,
+  CompleteContainer,
+  CompleteContainerText,
 } from './styles';
 
 const VideoLecture: React.FC = () => {
@@ -39,37 +41,37 @@ const VideoLecture: React.FC = () => {
             <Icon name={'arrow-left'} size={30} color={'#FF6680'} />
           </GoBackButton>
           <Image source={logo} />
-          <FavoriteButton
-            onPress={() => {
-              navigation.navigate('Login');
-            }}>
-            <Icon name={'power'} size={30} color={'#FF6680'} />
+          <FavoriteButton onPress={() => {}}>
+            <Icon name={'heart'} size={30} color={'#FF6680'} />
           </FavoriteButton>
         </HeaderTop>
-        <LectureContainer>
-          <InfoView>
-            <Title>Matemática</Title>
-            <NumberOfLectures>16 aulas</NumberOfLectures>
-          </InfoView>
-          <Lectures>
-            <Lecture>
-              <PlayButtonView>
-                <Icon name={'play-circle'} size={30} color={'#fff'} />
-              </PlayButtonView>
-              <LectureInformation>
-                <LectureTitle>Introdução à teoria matemática</LectureTitle>
-                <LectureSubtitleContainer>
-                  <LectureSubtitle> Aula 03</LectureSubtitle>
-                  <LectureDurationContainer>
-                    <Icon name={'clock'} size={30} color={'#C4C4D1'} />
-                    <LectureDuration>5min</LectureDuration>
-                  </LectureDurationContainer>
-                </LectureSubtitleContainer>
-              </LectureInformation>
-            </Lecture>
-          </Lectures>
-        </LectureContainer>
       </Header>
+      <LectureContainer>
+        <InfoView>
+          <Title>Matemática</Title>
+          <NumberOfLectures>16 aulas</NumberOfLectures>
+        </InfoView>
+        <Lectures>
+          <Lecture>
+            <PlayButtonView>
+              <Icon name={'play-circle'} size={45} color={'#fff'} />
+            </PlayButtonView>
+            <LectureInformation>
+              <LectureTitle>Introdução à teoria matemática</LectureTitle>
+              <LectureSubtitleContainer>
+                <LectureSubtitle> Aula 03</LectureSubtitle>
+                <LectureDurationContainer>
+                  <Icon name={'clock'} size={18} color={'#C4C4D1'} />
+                  <LectureDuration>5min</LectureDuration>
+                </LectureDurationContainer>
+                <CompleteContainer>
+                  <CompleteContainerText>Completo!</CompleteContainerText>
+                </CompleteContainer>
+              </LectureSubtitleContainer>
+            </LectureInformation>
+          </Lecture>
+        </Lectures>
+      </LectureContainer>
     </Container>
   );
 };
