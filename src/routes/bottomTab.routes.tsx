@@ -1,8 +1,9 @@
 import React from 'react';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
 import Icon from 'react-native-vector-icons/Feather';
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 import HomeRoutes from './home.routes';
 import MyCourses from '../screens/MyCourses';
@@ -10,11 +11,31 @@ import MyCourses from '../screens/MyCourses';
 const BottomTabRoutes: React.FC = () => (
   <Tab.Navigator
     initialRouteName="Home"
-    activeColor="#FF6680"
-    inactiveColor="#C4C4D1"
-    barStyle={{
-      backgroundColor: '#fff',
-      marginTop: -3,
+    tabBarPosition="bottom"
+    tabBarOptions={{
+      activeTintColor: '#FF6680',
+      inactiveTintColor: '#C4C4D1',
+      showIcon: true,
+      labelStyle: {
+        position: 'relative',
+        fontFamily: 'Rubik',
+        fontSize: 18,
+        textTransform: 'none',
+
+        bottom: 20,
+        left: 5,
+      },
+      style: {
+        height: 60,
+      },
+      iconStyle: {
+        right: 40,
+        top: 8,
+      },
+      indicatorStyle: {
+        top: 0,
+        backgroundColor: '#FF6680',
+      },
     }}>
     <Tab.Screen
       name="Home"
