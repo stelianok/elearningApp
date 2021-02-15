@@ -7,6 +7,80 @@ export const Container = styled.View`
   flex: 1;
 `;
 
+export const ModalContainer = styled.View`
+  position: absolute;
+`;
+
+export const ModalView = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000aa;
+`;
+
+export const Content = styled.View`
+  flex: 1;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+
+  margin-top: 230px;
+  margin-bottom: 230px;
+  margin-left: 30px;
+  margin-right: 30px;
+`;
+
+export const Description = styled.Text`
+  font-family: 'Rubik';
+  font-size: 24px;
+  color: #6c6c80;
+
+  text-align: center;
+  margin-right: 50px;
+  margin-left: 50px;
+
+  margin-top: 40px;
+  margin-bottom: 30px;
+`;
+
+export const ButtonContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const NegativeButton = styled.TouchableOpacity`
+  flex: 0.25;
+
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 25px;
+`;
+export const NegativeButtonText = styled.Text`
+  color: #ff6680;
+  font-family: 'Roboto';
+  font-size: 20px;
+`;
+export const PositiveButton = styled(RectButton)`
+  flex: 0.5;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ff6680;
+  border-radius: 100px;
+
+  padding: 15px;
+`;
+export const PositiveButtonText = styled.Text`
+  color: #fff;
+  font-family: 'Roboto-Regular';
+  font-size: 20px;
+`;
+// Modal Ends Here
+
 export const Header = styled.View`
   flex: 0.25;
   margin: 25px;
@@ -73,7 +147,7 @@ export const Courses = styled.Text`
 `;
 export const Classes = styled(FlatList as new () => FlatList<Lesson>)``;
 export const Class = styled.View`
-  flex: 1;
+  flex: 0.5;
   flex-basis: 0;
   background-color: #fff;
   width: 225px;
