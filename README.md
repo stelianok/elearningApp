@@ -13,8 +13,8 @@ Aplicação voltada para educação, que oferece cursos de diversas áreas de co
 - styled components
 - Hooks
 
-[Clique aqui para acessar o backend, desenvolvido em node.js](https://github.com/stelianok/elearning-backend)
-[Clique aqui para acessar o design no Figma, feito pelo Tiago Luchtenberg](https://www.figma.com/file/JwNEWWRIIZ0cHVrNM84Iih/e-learning-Copy?node-id=0%3A1)
+[Clique aqui para acessar o backend, desenvolvido em node.js](https://github.com/stelianok/elearning-backend) <br/>
+[Clique aqui para acessar o design no Figma, feito pelo Tiago Luchtenberg](https://www.figma.com/file/JwNEWWRIIZ0cHVrNM84Iih/e-learning-Copy?node-id=0%3A1)  <br/>
 
 ## Sumário
 
@@ -49,6 +49,11 @@ Dentro da pasta do projeto, execute ```yarn``` ou ```npm install``` <br/>
 - Usuários podem filtrar os cursos por nome.
 - Usuários podem favoritar seus cursos favoritos.
 - Usuários administradores logados podem utilizar a api desenvolvida em node para efetuar o cadastro,atualização e remoção de outros cursos e aulas.
+
+---
+
+## Contato 💼
+
 
 | <a href="https://github.com/stelianok" target="_blank">**Kauã Steliano**</a> 
 | :---: 
