@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-import {Image} from 'react-native';
+import {Image, View, ActivityIndicator} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import {
@@ -20,6 +20,10 @@ import {
   ClassInfo,
   Title,
   Lessons,
+  ErrorView,
+  ErrorText,
+  ErrorButton,
+  ErrorButtonText,
 } from './styles';
 
 import logo from '../../assets/img/Logotipo.png';
@@ -35,15 +39,19 @@ const Home: React.FC = () => {
   const navigation = useNavigation();
 
   const [courses, setCourses] = useState<Course[]>([]);
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [isOK, setIsOK] = useState(true);
   const handleLoadClasses = useCallback(async () => {
     try {
+      setIsLoading(true);
       const response = await api.get('/courses');
-      console.log(response.data);
-
       setCourses(response.data);
+      setIsOK(true);
     } catch (err) {
       console.log(err);
+      setIsOK(false);
+    } finally {
+      setIsLoading(false);
     }
   }, []);
 
@@ -82,31 +90,46 @@ const Home: React.FC = () => {
           <Category>Categorias</Category>
           <Courses>{numberOfCourses} Cursos</Courses>
         </InfoView>
-        <Classes
-          data={courses}
-          keyExtractor={(item) => item.id}
-          numColumns={2}
-          showHorizontalScreenIndicator={false}
-          renderItem={({item}) => {
-            return (
-              <Class
-                onPress={() => {
-                  navigation.navigate('Lectures');
-                }}>
-                <ClassLogo
-                  source={{
-                    uri: item.image,
-                  }}
-                  resizeMode={'contain'}
-                />
-                <ClassInfo>
-                  <Title>{item.name}</Title>
-                  <Lessons>{item.numberOfLessons} aulas </Lessons>
-                </ClassInfo>
-              </Class>
-            );
-          }}
-        />
+        {isLoading ? (
+          <View style={{flex: 1}}>
+            <ActivityIndicator color={'#6548A3'} />
+          </View>
+        ) : isOK ? (
+          <Classes
+            data={courses}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+            showHorizontalScreenIndicator={false}
+            renderItem={({item}) => {
+              return (
+                <Class
+                  onPress={() => {
+                    navigation.navigate('Lectures');
+                  }}>
+                  <ClassLogo
+                    source={{
+                      uri: item.image,
+                    }}
+                    resizeMode={'contain'}
+                  />
+                  <ClassInfo>
+                    <Title>{item.name}</Title>
+                    <Lessons>{item.numberOfLessons} aulas </Lessons>
+                  </ClassInfo>
+                </Class>
+              );
+            }}
+          />
+        ) : (
+          <ErrorView>
+            <ErrorText>
+              Ooops! Parece que algo deu errado! Deseja tentar novamente?
+            </ErrorText>
+            <ErrorButton onPress={handleLoadClasses}>
+              <ErrorButtonText>Tentar Novamente</ErrorButtonText>
+            </ErrorButton>
+          </ErrorView>
+        )}
       </ClassesContainer>
     </Container>
   );
