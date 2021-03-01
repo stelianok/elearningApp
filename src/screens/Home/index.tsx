@@ -41,6 +41,22 @@ const Home: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isOK, setIsOK] = useState(true);
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearchCourseByName = useCallback(async (name) => {
+    try {
+      setIsLoading(true);
+      const response = await api.get(`/courses?name=${name}`);
+      setCourses(response.data);
+      setIsOK(true);
+    } catch (err) {
+      console.log(err);
+      setIsOK(false);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   const handleLoadClasses = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -65,6 +81,14 @@ const Home: React.FC = () => {
     }
     loadClasses();
   }, [handleLoadClasses]);
+
+  useEffect(() => {
+    async function loadClasses() {
+      await handleSearchCourseByName(searchValue);
+    }
+    loadClasses();
+  }, [searchValue, handleSearchCourseByName]);
+
   return (
     <Container>
       <Header>
@@ -82,6 +106,11 @@ const Home: React.FC = () => {
           <SearchBarInput
             placeholder={'Busque um curso'}
             placeholderTextColor={'#C4C4D1'}
+            onChangeText={(text: string) => {
+              setSearchValue(text);
+            }}
+            value={searchValue}
+            returnKeyType={'search'}
           />
         </SearchBarContainer>
       </Header>
