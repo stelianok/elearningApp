@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Lesson} from './index';
+import {Course} from './index';
 import {FlatList, RectButton} from 'react-native-gesture-handler';
 
 export const Container = styled.View`
@@ -72,7 +72,7 @@ export const Courses = styled.Text`
 
   font-size: 20px;
 `;
-export const Classes = styled(FlatList as new () => FlatList<Lesson>)``;
+export const Classes = styled(FlatList as new () => FlatList<Course>)``;
 export const Class = styled(RectButton)`
   flex: 0.5;
   flex-basis: 0;

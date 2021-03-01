@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import {Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -23,67 +23,40 @@ import {
 } from './styles';
 
 import logo from '../../assets/img/Logotipo.png';
+import api from '../../services/api';
 
-import math from '../../assets/img/Math.png';
-import build from '../../assets/img/Build.png';
-import chemistry from '../../assets/img/Quimica.png';
-import physics from '../../assets/img/Fisica.png';
-import talk from '../../assets/img/Talk.png';
-import english from '../../assets/img/English.png';
-
-export interface Lesson {
+export interface Course {
   id: string;
   name: string;
-  numberOfClasses: number;
-  classIcon: any;
+  image: string;
 }
+
 const Home: React.FC = () => {
   const navigation = useNavigation();
 
-  const [classes] = useState<Lesson[]>([
-    {
-      id: '01',
-      name: 'Matemática',
-      numberOfClasses: 16,
-      classIcon: math,
-    },
-    {
-      id: '02',
-      name: 'Física',
-      numberOfClasses: 25,
-      classIcon: physics,
-    },
-    {
-      id: '03',
-      name: 'Inglês',
-      numberOfClasses: 6,
-      classIcon: english,
-    },
-    {
-      id: '04',
-      name: 'Química',
-      numberOfClasses: 61,
-      classIcon: chemistry,
-    },
-    {
-      id: '05',
-      name: 'Softskills',
-      numberOfClasses: 10,
-      classIcon: talk,
-    },
-    {
-      id: '06',
-      name: 'Arte',
-      numberOfClasses: 35,
-      classIcon: build,
-    },
-    {
-      id: '07',
-      name: 'Arte',
-      numberOfClasses: 35,
-      classIcon: build,
-    },
-  ]);
+  const [courses, setCourses] = useState<Course[]>([]);
+
+  const handleLoadClasses = useCallback(async () => {
+    try {
+      const response = await api.get('/courses');
+      console.log(response.data);
+
+      setCourses(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
+  const numberOfCourses = useMemo(() => {
+    return courses.length;
+  }, [courses]);
+
+  useEffect(() => {
+    async function loadClasses() {
+      await handleLoadClasses();
+    }
+    loadClasses();
+  }, [handleLoadClasses]);
   return (
     <Container>
       <Header>
@@ -107,10 +80,10 @@ const Home: React.FC = () => {
       <ClassesContainer>
         <InfoView>
           <Category>Categorias</Category>
-          <Courses>43 cursos</Courses>
+          <Courses>{numberOfCourses} Cursos</Courses>
         </InfoView>
         <Classes
-          data={classes}
+          data={courses}
           keyExtractor={(item) => item.id}
           numColumns={2}
           showHorizontalScreenIndicator={false}
@@ -120,10 +93,15 @@ const Home: React.FC = () => {
                 onPress={() => {
                   navigation.navigate('Lectures');
                 }}>
-                <ClassLogo source={item.classIcon} resizeMode={'contain'} />
+                <ClassLogo
+                  source={{
+                    uri: item.image,
+                  }}
+                  resizeMode={'contain'}
+                />
                 <ClassInfo>
                   <Title>{item.name}</Title>
-                  <Lessons>{item.numberOfClasses} aulas </Lessons>
+                  <Lessons>{item.numberOfLessons} aulas </Lessons>
                 </ClassInfo>
               </Class>
             );
