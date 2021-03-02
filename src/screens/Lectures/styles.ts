@@ -1,3 +1,6 @@
+import {FlatList} from 'react-native';
+import {Lesson} from './index';
+
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -58,4 +61,4 @@ export const NumberOfLectures = styled.Text`
 
   font-size: 18px;
 `;
-export const Lectures = styled.ScrollView``;
+export const Lectures = styled(FlatList as FlatList<Lesson>)``;
