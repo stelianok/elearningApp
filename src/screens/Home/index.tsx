@@ -20,14 +20,11 @@ import {
   ClassInfo,
   Title,
   Lessons,
-  ErrorView,
-  ErrorText,
-  ErrorButton,
-  ErrorButtonText,
 } from './styles';
 
 import logo from '../../assets/img/Logotipo.png';
 import api from '../../services/api';
+import ErrorMessage from '../../components/ErrorMessage';
 
 export interface Course {
   id: string;
@@ -133,7 +130,9 @@ const Home: React.FC = () => {
               return (
                 <Class
                   onPress={() => {
-                    navigation.navigate('Lectures');
+                    navigation.navigate('Lectures', {
+                      course_id: item.id,
+                    });
                   }}>
                   <ClassLogo
                     source={{
@@ -150,14 +149,7 @@ const Home: React.FC = () => {
             }}
           />
         ) : (
-          <ErrorView>
-            <ErrorText>
-              Ooops! Parece que algo deu errado! Deseja tentar novamente?
-            </ErrorText>
-            <ErrorButton onPress={handleLoadClasses}>
-              <ErrorButtonText>Tentar Novamente</ErrorButtonText>
-            </ErrorButton>
-          </ErrorView>
+          <ErrorMessage handleFunction={handleLoadClasses} />
         )}
       </ClassesContainer>
     </Container>
