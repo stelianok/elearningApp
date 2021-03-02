@@ -45,7 +45,6 @@ const VideoLecture: React.FC = () => {
         `/courses/${route.params?.course_id}/lessons`,
       );
       setLessons(response.data);
-      console.log(response.data);
       setIsOK(true);
     } catch (err) {
       console.log(err);
@@ -97,14 +96,7 @@ const VideoLecture: React.FC = () => {
             keyExtractor={(item) => item.id}
             showHorizontaalScreenIndicator={false}
             renderItem={({item}) => {
-              return (
-                <Lecture
-                  name={item.name}
-                  lectureNumber={`Aula ${item.order}`}
-                  duration={`${item.duration}min`}
-                  isComplete={false}
-                />
-              );
+              return <Lecture isComplete={false} lesson={item} />;
             }}
           />
         ) : (

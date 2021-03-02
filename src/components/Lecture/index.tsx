@@ -14,35 +14,32 @@ import {
   PlayButtonView,
 } from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {Lesson} from '../../screens/Lectures';
 
 interface LectureProps {
-  name: string;
-  lectureNumber: string;
-  duration: string;
+  lesson: Lesson;
   isComplete: boolean;
   containerStyle?: {};
 }
 const Lecture: React.FC<LectureProps> = (props) => {
-  const {
-    name,
-    lectureNumber,
-    duration,
-    isComplete,
-    containerStyle = {},
-  } = props;
+  const {lesson, isComplete, containerStyle = {}} = props;
   const navigation = useNavigation();
   return (
     <LectureContainer>
       <LectureInformation
         onPress={() => {
-          navigation.navigate('VideoLecture');
+          navigation.navigate('VideoLecture', {
+            lesson: lesson,
+          });
         }}>
-        <LectureTitle numberOfLines={2}>{name}</LectureTitle>
+        <LectureTitle numberOfLines={2}>{lesson.name}</LectureTitle>
         <LectureSubtitleContainer>
-          <LectureSubtitle> {lectureNumber}</LectureSubtitle>
+          <LectureSubtitle>
+            Aula {String(lesson.order).padStart(2, '0')}
+          </LectureSubtitle>
           <LectureDurationContainer>
             <Icon name={'clock'} size={18} color={'#C4C4D1'} />
-            <LectureDuration>{duration}</LectureDuration>
+            <LectureDuration>{lesson.duration}</LectureDuration>
           </LectureDurationContainer>
           {isComplete && (
             <CompleteContainer>
