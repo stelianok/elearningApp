@@ -37,7 +37,7 @@ const Lecture: React.FC<LectureProps> = (props) => {
         onPress={() => {
           navigation.navigate('VideoLecture');
         }}>
-        <LectureTitle>{name}</LectureTitle>
+        <LectureTitle numberOfLines={2}>{name}</LectureTitle>
         <LectureSubtitleContainer>
           <LectureSubtitle> {lectureNumber}</LectureSubtitle>
           <LectureDurationContainer>
@@ -52,7 +52,7 @@ const Lecture: React.FC<LectureProps> = (props) => {
         </LectureSubtitleContainer>
       </LectureInformation>
       <PlayButtonView style={containerStyle} isComplete={isComplete}>
-        <Icon name={'play-circle'} size={45} color={'#fff'} />
+        <Icon name={'play-circle'} size={40} color={'#fff'} />
       </PlayButtonView>
     </LectureContainer>
   );

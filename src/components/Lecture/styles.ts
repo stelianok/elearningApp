@@ -6,7 +6,6 @@ interface PlayerProps {
   containerStyle?: {};
 }
 export const LectureContainer = styled.View`
-  flex: 1;
   flex-direction: row;
   border-radius: 15px;
 
@@ -17,10 +16,7 @@ export const LectureContainer = styled.View`
 `;
 export const PlayButtonView = styled.View<PlayerProps>`
   position: absolute;
-
-  top: 15px;
-  left: 0;
-
+  left: 1px;
   ${(props) =>
     props.isComplete &&
     css`
@@ -35,9 +31,10 @@ export const PlayButtonView = styled.View<PlayerProps>`
 
   justify-content: center;
   align-items: center;
+  align-self: center;
 
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
 
   border-radius: 25px;
 `;
@@ -70,6 +67,7 @@ export const LectureSubtitleContainer = styled.View`
   justify-content: space-evenly;
 
   margin: 5px;
+  margin-bottom: 7px;
 `;
 export const LectureSubtitle = styled.Text`
   font-family: 'Roboto-Regular';
